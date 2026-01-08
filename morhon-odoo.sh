@@ -23,8 +23,8 @@ BACKUP_DIR="/var/backups/morhon-odoo"
 LOG_DIR="/var/log/morhon-odoo"
 
 # 固定卷名
-DB_VOLUME_NAME="odoo-db-data"
-ODOO_VOLUME_NAME="odoo-web-data"
+DB_VOLUME_NAME="morhon-pg"
+ODOO_VOLUME_NAME="morhon-odoo"
 
 # 固定镜像配置
 ODOO_IMAGE="registry.cn-hangzhou.aliyuncs.com/morhon_hub/mh_odoosaas_v17:latest"
@@ -1400,10 +1400,10 @@ get_restore_deployment_info() {
     if [ -n "$domain_ref" ]; then
         deployment_type_ref="domain"
         # 自动检测是否带www
-            if [[ "$domain_ref" == www.* ]]; then
-                use_www_ref="yes"
-            fi
-            # 原手动选择已替换为自动检测
+        if [[ "$domain_ref" == www.* ]]; then
+            use_www_ref="yes"
+        fi
+        # 原手动选择已替换为自动检测
     fi
 }
 
@@ -1462,10 +1462,10 @@ get_deployment_info_interactive() {
     if [ -n "$domain_ref" ]; then
         deployment_type_ref="domain"
         # 自动检测是否带www
-            if [[ "$domain_ref" == www.* ]]; then
-                use_www_ref="yes"
-            fi
-            # 原手动选择已替换为自动检测
+        if [[ "$domain_ref" == www.* ]]; then
+            use_www_ref="yes"
+        fi
+        # 原手动选择已替换为自动检测
     fi
 }
 
